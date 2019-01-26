@@ -1,3 +1,8 @@
-<p>
-  <span>{{hero}}</span>
-</p>
+<h2>Boards</h2>
+<div class="board">
+  <h4 class="alignCenter noMargin">{{board.name}}</h4>
+  <span>ID: {{board.id}}</span>
+  <div>
+    <label>Name: <input [(ngModel)]="board.name" placeholder="name"></label>
+  </div>
+</div>

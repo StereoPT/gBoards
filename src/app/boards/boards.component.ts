@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Board } from '../board';
 
 @Component({
   selector: 'app-boards',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardsComponent implements OnInit {
 
-  board = 'ToDo';
+  board: Board = {
+    id: 1,
+    name: "ToDo"
+  };
 
   constructor() { }
 
