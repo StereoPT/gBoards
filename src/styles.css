@@ -1,11 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 html {
-	height: 100%;
-	background: #d5d5d5;
-	background: -moz-linear-gradient(-45deg, #d5d5d5 0%, #96858f 100%);
-	background: -webkit-linear-gradient(-45deg, #d5d5d5 0%,#96858f 100%);
-	background: linear-gradient(135deg, #d5d5d5 0%,#96858f 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5d5d5', endColorstr='#96858f',GradientType=1 );
+	background-color: #D5D5D5;
 	
 	font-family: 'Roboto', sans-serif;
 }

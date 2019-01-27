@@ -1,8 +1,19 @@
 <h2>Boards</h2>
-<div class="board">
-  <h4 class="alignCenter noMargin">{{board.name}}</h4>
-  <span>ID: {{board.id}}</span>
+<ul class="boards">
+  <li *ngFor="let board of boards" [class.selected]="board === selectedBoard" (click)="onSelect(board)">
+    <div class="board">
+      <span class="boardName">{{board.name}}</span>
+    </div>
+  </li>
+</ul>
+
+<div class="selectedBoard" *ngIf="selectedBoard">
+  <span class="boardName"><b>{{selectedBoard.name | uppercase}}</b> Details</span>
+  <p>
+  <div><span>ID: </span>{{selectedBoard.id}}</div>
   <div>
-    <label>Name: <input [(ngModel)]="board.name" placeholder="name"></label>
+    <label>
+      Name: <input [(ngModel)]="selectedBoard.name" placeholder="Name">
+    </label>
   </div>
 </div>

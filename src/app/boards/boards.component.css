@@ -2,25 +2,49 @@ h2 {
   color: #454545;
 }
 
-.alignCenter {
+.boards {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+.boards li {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  left: 0;
+  background-color: #C5C5C5;
+  margin: .5em;
+  padding: .3em 0;
+  height: 5em;
+  width: 15em;
+  border-radius: 5px;
   text-align: center;
 }
 
-.noMargin {
-  margin: 0;
+.selectedBoard {
+  font-size: 1.25em;
+  position: relative;
+  display: inline-block;
+  left: 0;
+  background-color: #C5C5C5;
+  margin: .5em;
+  padding: .3em 0;
+  height: 5em;
+  width: 20em;
+  border-radius: 5px;
+  text-align: center;
 }
 
-.board {
-  width: 18rem;
+.boardName {
+  font-size: 1.25em;
+}
 
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0rem;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, .125);
-  border-radius: .25rem;
-  padding: 0.5rem
+.selected {
+  background-color: #9099A2 !important;
+  color: white;
+}
+
+.alignCenter {
+  text-align: center;
 }

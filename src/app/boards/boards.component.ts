@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Board } from '../board';
+import { BOARDS } from '../mock-boards';
 
 @Component({
   selector: 'app-boards',
@@ -8,13 +10,15 @@ import { Board } from '../board';
 })
 export class BoardsComponent implements OnInit {
 
-  board: Board = {
-    id: 1,
-    name: "ToDo"
-  };
+  boards = BOARDS;
+  selectedBoard: Board;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(board: Board): void {
+    this.selectedBoard = board;
   }
 }
