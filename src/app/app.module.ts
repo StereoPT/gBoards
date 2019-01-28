@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 
 import { BoardsComponent } from './boards/boards.component';
 import { BoardDetailComponent } from './board-detail/board-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardsComponent,
-    BoardDetailComponent
+    BoardDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

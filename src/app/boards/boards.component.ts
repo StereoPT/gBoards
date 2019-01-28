@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Board } from '../board';
-import { BOARDS } from '../mock-boards';
+import { BoardService } from '../board.service';
 
 @Component({
   selector: 'app-boards',
@@ -10,15 +10,20 @@ import { BOARDS } from '../mock-boards';
 })
 export class BoardsComponent implements OnInit {
 
-  boards = BOARDS;
   selectedBoard: Board;
+  boards: Board[];
 
-  constructor() { }
+  constructor(private boardService: BoardService) { }
 
   ngOnInit() {
+    this.getBoards();
   }
 
   onSelect(board: Board): void {
     this.selectedBoard = board;
+  }
+
+  getBoards(): void {
+    this.boardService.getBoards().subscribe(boards => this.boards = boards);
   }
 }

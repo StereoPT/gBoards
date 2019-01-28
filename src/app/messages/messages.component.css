@@ -1,0 +1,26 @@
+h2 {
+  color: #454545;
+}
+
+.clearBtn {
+  font-size: 1.025rem;
+  background-color: #9099A2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.messageCards {
+  position: relative;
+  display: inline-block;
+  left: 0;
+  background-color: #C5C5C5;
+  margin: .5em;
+  padding: .3em 0;
+  height: 100%;
+  width: 25em;
+  border-radius: 5px;
+  text-align: center;
+}
