@@ -1,16 +1,16 @@
 # GBoards
 
-![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_002.jpg)
+![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_003.jpg)
 
 ## ToDo List
 
-[x] Add Boards
-[x] Add Board Details
-[ ] Create Board Service
-[ ] Create Message Component
-[ ] Refactor Componets to use Service & Message
-[ ] Routing
-
+- [x] Create Board Service
+- [x] Create Message Component
+- [x] Refactor Componets to use Service & Message
+- [ ] Routing
+- [ ] Create Node.js Server
+- [ ] Create MongoDB Database
+- [ ] Create Node.js API to fetch from Database
 
 ## Development Server
 
