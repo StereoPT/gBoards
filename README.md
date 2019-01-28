@@ -7,10 +7,12 @@
 - [x] Create Board Service
 - [x] Create Message Component
 - [x] Refactor Componets to use Service & Message
-- [ ] Routing
 - [ ] Create Node.js Server
+- [ ] Refactor Project for both Front / Back End.
 - [ ] Create MongoDB Database
 - [ ] Create Node.js API to fetch from Database
+- [ ] Routing
+
 
 ## Development Server
 
