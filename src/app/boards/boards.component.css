@@ -22,20 +22,6 @@ h2 {
   text-align: center;
 }
 
-.selectedBoard {
-  font-size: 1.25em;
-  position: relative;
-  display: inline-block;
-  left: 0;
-  background-color: #C5C5C5;
-  margin: .5em;
-  padding: .3em 0;
-  height: 5em;
-  width: 20em;
-  border-radius: 5px;
-  text-align: center;
-}
-
 .boardName {
   font-size: 1.25em;
 }

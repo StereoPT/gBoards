@@ -1,0 +1,10 @@
+<div class="selectedBoard" *ngIf="board">
+  <span class="boardName"><b>{{board.name | uppercase}}</b> Details</span>
+  <p>
+  <div><span>ID: </span>{{board.id}}</div>
+  <div>
+    <label>
+      Name: <input [(ngModel)]="board.name" placeholder="Name">
+    </label>
+  </div>
+</div>

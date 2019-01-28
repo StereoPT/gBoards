@@ -7,13 +7,4 @@
   </li>
 </ul>
 
-<div class="selectedBoard" *ngIf="selectedBoard">
-  <span class="boardName"><b>{{selectedBoard.name | uppercase}}</b> Details</span>
-  <p>
-  <div><span>ID: </span>{{selectedBoard.id}}</div>
-  <div>
-    <label>
-      Name: <input [(ngModel)]="selectedBoard.name" placeholder="Name">
-    </label>
-  </div>
-</div>
+<app-board-detail [board]="selectedBoard"></app-board-detail>

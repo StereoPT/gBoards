@@ -2,7 +2,7 @@
 
 ![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_002.jpg)
 
-## Development server
+## Development Server
 
 Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`.
 The app will automatically reload if you change any of the source files.

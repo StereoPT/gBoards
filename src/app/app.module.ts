@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BoardsComponent } from './boards/boards.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BoardsComponent } from './boards/boards.component';
+import { BoardDetailComponent } from './board-detail/board-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoardsComponent
+    BoardsComponent,
+    BoardDetailComponent
   ],
   imports: [
-    NgbModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule
