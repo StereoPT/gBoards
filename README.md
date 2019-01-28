@@ -2,6 +2,16 @@
 
 ![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_002.jpg)
 
+## ToDo List
+
+[x] Add Boards
+[x] Add Board Details
+[ ] Create Board Service
+[ ] Create Message Component
+[ ] Refactor Componets to use Service & Message
+[ ] Routing
+
+
 ## Development Server
 
 Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`.
