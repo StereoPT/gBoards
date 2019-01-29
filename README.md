@@ -4,20 +4,28 @@
 
 ## ToDo List
 
-- [x] Create Board Service
-- [x] Create Message Component
 - [x] Refactor Componets to use Service & Message
-- [ ] Create Node.js Server
-- [ ] Refactor Project for both Front / Back End.
+- [x] Create Node.js Server
+- [x] Refactor Project for both Front / Back End.
+- [x] Provide Fake Data from Node.js API
 - [ ] Create MongoDB Database
-- [ ] Create Node.js API to fetch from Database
+- [ ] Change API to fetch from Database
 - [ ] Routing
 
 
 ## Development Server
 
-Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`.
+### FrontEnd
+
+Navigate to 'FrontEnd' Folder.
+Run `ng serve --open` for a front end. Navigate to `http://localhost:4200/`.
 The app will automatically reload if you change any of the source files.
+
+
+### BackEnd
+
+Navigate to 'BackEnd' Folder
+Run `node app.js` for the backend server. Navigate to `http://localhost:2909/boards`. For the List of Boards.
 
 
 ## Build
