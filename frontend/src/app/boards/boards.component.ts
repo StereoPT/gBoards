@@ -9,18 +9,12 @@ import { BoardService } from '../board.service';
   styleUrls: ['./boards.component.css']
 })
 export class BoardsComponent implements OnInit {
-
-  selectedBoard: Board;
   boards: Board[];
 
   constructor(private boardService: BoardService) { }
 
   ngOnInit() {
     this.getBoards();
-  }
-
-  onSelect(board: Board): void {
-    this.selectedBoard = board;
   }
 
   getBoards(): void {

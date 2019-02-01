@@ -1,10 +1,15 @@
-<h2>Boards</h2>
-<ul class="boards">
-  <li *ngFor="let board of boards" [class.selected]="board === selectedBoard" (click)="onSelect(board)">
-    <div class="board">
-      <span class="boardName">{{board.name}}</span>
+<h2><i class="fas fa-user m-r-10"></i> Boards</h2>
+<ul class="board-list">
+  <li class="board-list-item" *ngFor="let board of boards">
+    <a class="board-tile" routerLink="/boards/{{board.id}}">
+      <div class="board-tile-details">
+        <div class="board-tile-details-name">{{board.name}}</div>
+      </div>
+    </a>
+  </li>
+  <li class="board-list-item" (click)="newBoard($event); false">
+    <div class="board-tile mod-add" *ngIf="!createNewBoard">
+      <p class="bold">Create new board...</p>
     </div>
   </li>
 </ul>
-
-<app-board-detail [board]="selectedBoard"></app-board-detail>

@@ -24,6 +24,6 @@ import { MessagesComponent } from './messages/messages.component';
     AppRoutingModule
   ],
   providers: [ ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

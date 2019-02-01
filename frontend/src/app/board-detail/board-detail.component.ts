@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
+import { BoardService } from '../board.service';
 import { Board } from '../board';
 
 @Component({
@@ -8,11 +11,18 @@ import { Board } from '../board';
   styleUrls: ['./board-detail.component.css']
 })
 export class BoardDetailComponent implements OnInit {
-  @Input() board: Board;
+  board: Board;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private boardService: BoardService, private location: Location) {
 
-  ngOnInit() {
   }
 
+  ngOnInit(): void {
+    this.getBoard();
+  }
+
+  getBoard(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.boardService.getBoard(id).subscribe(board => this.board = board);
+  }
 }

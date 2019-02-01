@@ -17,4 +17,9 @@ export class BoardService {
     this.messageService.add("BoardService: Fetched Boards");
     return this.http.get<Board[]>('http://localhost:2909/boards');
   }
+
+  getBoard(id: number): Observable<Board> {
+    this.messageService.add(`BoardService: Fetched Board ID=${id}`);
+    return this.http.get<Board>(`http://localhost:2909/boards/${id}`);
+  }
 }
