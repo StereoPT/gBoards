@@ -25,4 +25,8 @@ export class BoardDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.boardService.getBoard(id).subscribe(board => this.board = board);
   }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

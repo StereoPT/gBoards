@@ -1,17 +1,56 @@
-.selectedBoard {
-  font-size: 1.25em;
-  position: relative;
-  display: inline-block;
-  left: 0;
-  background-color: #C5C5C5;
-  margin: .5em;
-  padding: .3em 0;
-  height: 5em;
-  width: 20em;
-  border-radius: 5px;
-  text-align: center;
+h2 {
+  color: #454545;
 }
 
-.boardName {
-  font-size: 1.25em;
+.board-list-item {
+  width: 23.5%;
+  padding: 0;
+  margin: 0 2% 8px 0;
+  -webkit-transform: translate(0);
+  transform: translate(0);
+
+  box-sizing: border-box;
+  position: relative;
+}
+
+.board-tile {
+  background-color: #C5C5C5;
+  background-size: cover;
+  background-position: 50%;
+  color: #FFFFFF;
+  line-height: 20px;
+  padding: 8px;
+  position: relative;
+  text-decoration: none;
+  border-radius: 5px;
+  display: block;
+}
+
+.board-tile-details {
+  display: flex;
+  height: 80px;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.board-tile-details-name {
+  flex: 0 0 auto;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  overflow: hidden;
+  max-height: 40px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.back-btn {
+  font-size: 1.025rem;
+  background-color: #9099A2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
 }

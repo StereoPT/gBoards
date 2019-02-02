@@ -23,7 +23,20 @@ function MongoHelper() {
       boardsTable.find({}).toArray(function(err, result) {
         assert.equal(err, null);
         callback(result);
-        
+
+        _client.close();
+      });
+    });
+  };
+
+  this.ListBoard = function(boardID, callback) {
+    Connect((db) => {
+      let boardsTable = db.collection('Boards');
+
+      boardsTable.find({ "id": boardID }).toArray(function(err, result) {
+        assert.equal(err, null);
+        callback(result[0]);
+
         _client.close();
       });
     });

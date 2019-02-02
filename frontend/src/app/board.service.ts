@@ -19,6 +19,7 @@ export class BoardService {
   }
 
   getBoard(id: number): Observable<Board> {
+    //TODO: send the message _after_ fetching the Boards
     this.messageService.add(`BoardService: Fetched Board ID=${id}`);
     return this.http.get<Board>(`http://localhost:2909/boards/${id}`);
   }

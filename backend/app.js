@@ -24,6 +24,13 @@ app.get('/boards', (req, res) => {
   });
 });
 
+app.get('/boards/:id', (req, res) => {
+  let boardID = Number(req.params.id);
+  mongoHelper.ListBoard(boardID, (result) => {
+    res.send(result);
+  });
+});
+
 const port = 2909;
 app.listen(port, () => {
   console.log(`[gBoards] Listening on Port: ${port}`);
