@@ -1,17 +1,16 @@
 # GBoards
 
-![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_003_.jpg)
+![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_004_.jpg)
 
 ## ToDo List
 
-- [x] Refactor Componets to use Service & Message
-- [x] Create Node.js Server
-- [x] Refactor Project for both Front / Back End.
-- [x] Provide Fake Data from Node.js API
-- [ ] Create MongoDB Database
-- [ ] Change API to fetch from Database
-- [ ] Routing
-
+- [x] FrontEnd fetch All Boards
+- [x] FrontEnd fetch Board by ID
+- [x] Board Detail Route
+- [x] Add New Boards
+- [ ] Delete Boards
+- [ ] Update Boards
+- [ ] ReDo FrontEnd
 
 ## Development Server
 
