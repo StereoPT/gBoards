@@ -1,4 +1,5 @@
 const express = require('express'),
+      bodyParser = require('body-parser'),
       cors = require('cors');
 const app = express();
 
@@ -12,6 +13,8 @@ let corsOptions = {
   optionsSuccessStatus: 200
 }
 
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(cors(corsOptions));
 
 app.get('/', (req, res) => {
@@ -27,6 +30,13 @@ app.get('/boards', (req, res) => {
 app.get('/boards/:id', (req, res) => {
   let boardID = Number(req.params.id);
   mongoHelper.ListBoard(boardID, (result) => {
+    res.send(result);
+  });
+});
+
+app.post('/boards/add', (req, res) => {
+  let boardToAdd = req.body;
+  mongoHelper.AddBoard(boardToAdd, (result) => {
     res.send(result);
   });
 });

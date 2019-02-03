@@ -20,4 +20,12 @@ export class BoardsComponent implements OnInit {
   getBoards(): void {
     this.boardService.getBoards().subscribe(boards => this.boards = boards);
   }
+
+  addBoard(name: string) {
+    name = name.trim();
+    if(!name) { return; }
+    this.boardService.addBoard({ id: this.boards.length + 1, name: name } as Board).subscribe(board => {
+      this.boards.push(board);
+    });
+  }
 }

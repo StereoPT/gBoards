@@ -7,9 +7,11 @@
       </div>
     </a>
   </li>
-  <li class="board-list-item" (click)="newBoard($event); false">
-    <div class="board-tile mod-add" *ngIf="!createNewBoard">
-      <p class="bold">Create new board...</p>
+  <li class="board-list-item">
+    <div class="board-tile mod-add">
+      <div class="board-tile-details-name">Board Name:</div>
+      <input class="add-board-input" #boardName />
+      <button class="add-btn" (click)="addBoard(boardName.value); boardName.value=''">Add</button>
     </div>
   </li>
 </ul>

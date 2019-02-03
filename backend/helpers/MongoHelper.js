@@ -41,6 +41,20 @@ function MongoHelper() {
       });
     });
   };
+
+  this.AddBoard = function(boardToAdd, callback) {
+    Connect((db) => {
+      let boardsTable = db.collection('Boards');
+
+      boardsTable.insertOne(boardToAdd, function(err, result) {
+        assert.equal(err, null);
+        console.log("Board Inserted with Success!");
+        callback(result.ops[0]);
+
+        _client.close();
+      });
+    });
+  };
 }
 
 module.exports = MongoHelper;
