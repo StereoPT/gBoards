@@ -8,8 +8,9 @@
 - [x] FrontEnd fetch Board by ID
 - [x] Board Detail Route
 - [x] Add New Boards
-- [ ] Delete Boards
+- [x] Delete Boards
 - [ ] Update Boards
+- [ ] ReDo Board Data
 - [ ] ReDo FrontEnd
 
 ## Development Server
