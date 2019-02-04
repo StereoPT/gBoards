@@ -41,6 +41,13 @@ app.post('/boards/add', (req, res) => {
   });
 });
 
+app.post('/boards/delete', (req, res) => {
+  let boardToDelete = req.body;
+  mongoHelper.DeleteBoard(boardToDelete, (result) => {
+    res.send(result);
+  });
+});
+
 const port = 2909;
 app.listen(port, () => {
   console.log(`[gBoards] Listening on Port: ${port}`);

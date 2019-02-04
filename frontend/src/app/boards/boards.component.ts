@@ -28,4 +28,11 @@ export class BoardsComponent implements OnInit {
       this.boards.push(board);
     });
   }
+
+  deleteBoard(board: Board) {
+    if(!board) { return; }
+    this.boardService.deleteBoard(board).subscribe(board => {
+      this.boards.splice(board.id, 1);
+    });
+  }
 }

@@ -38,6 +38,13 @@ export class BoardService {
     );
   }
 
+  deleteBoard(board: Board): Observable<Board> {
+    return this.http.post<Board>('http://localhost:2909/boards/delete/', board, httpOptions).pipe(
+      tap(_ => this.log(`Deleted Board: ID=${board.id}`)),
+      catchError(this.handleError<Board>(`deleteBoard ID=${board.id}`))
+    );
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

@@ -48,8 +48,21 @@ function MongoHelper() {
 
       boardsTable.insertOne(boardToAdd, function(err, result) {
         assert.equal(err, null);
-        console.log("Board Inserted with Success!");
         callback(result.ops[0]);
+
+        _client.close();
+      });
+    });
+  };
+
+  this.DeleteBoard = function(boardToDelete, callback) {
+    Connect((db) => {
+      let boardsTable = db.collection('Boards');
+
+      boardsTable.deleteOne({ id: boardToDelete.id }, function(err, result) {
+        assert.equal(err, null);
+        console.log("Board Deleted with Success!");
+        callback(result);
 
         _client.close();
       });

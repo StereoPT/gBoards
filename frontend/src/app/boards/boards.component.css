@@ -85,6 +85,17 @@ ul {
   cursor: hand;
 }
 
+.add-btn-white {
+  font-size: 1.025rem;
+  background-color: #9099A2;
+  border: none;
+  padding: 2px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  color: #FFFFFF;
+}
+
 .add-board-input {
   width: 90%;
   padding: 3px;
