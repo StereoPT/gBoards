@@ -1,17 +1,17 @@
 # GBoards
 
-![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_004_.jpg)
+![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_006.jpg)
 
 ## ToDo List
 
-- [x] FrontEnd fetch All Boards
 - [x] FrontEnd fetch Board by ID
 - [x] Board Detail Route
 - [x] Add New Boards
 - [x] Delete Boards
-- [ ] Update Boards
+- [x] Update Boards
 - [ ] ReDo Board Data
 - [ ] ReDo FrontEnd
+- [ ] New ReadMe.md
 
 ## Development Server
 

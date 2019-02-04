@@ -101,3 +101,7 @@ ul {
   padding: 3px;
   margin-bottom: 5px;
 }
+
+.float-right {
+  float: right;
+}

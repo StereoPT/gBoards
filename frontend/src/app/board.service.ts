@@ -45,6 +45,13 @@ export class BoardService {
     );
   }
 
+  updateBoard(board: Board): Observable<Board> {
+    return this.http.post<Board>('http://localhost:2909/boards/update/', board, httpOptions).pipe(
+      tap(_ => this.log(`Updated Board: ID=${board.id}`)),
+      catchError(this.handleError<Board>(`updateBoard ID=${board.id}`))
+    );
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

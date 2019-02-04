@@ -61,7 +61,19 @@ function MongoHelper() {
 
       boardsTable.deleteOne({ id: boardToDelete.id }, function(err, result) {
         assert.equal(err, null);
-        console.log("Board Deleted with Success!");
+        callback(result);
+
+        _client.close();
+      });
+    });
+  };
+
+  this.UpdateBoard = function(boardToUpdate, callback) {
+    Connect((db) => {
+      let boardsTable = db.collection('Boards');
+
+      boardsTable.updateOne({ id: boardToUpdate.id }, { $set: { name: boardToUpdate.name }}, function(err, result) {
+        assert.equal(err, null);
         callback(result);
 
         _client.close();

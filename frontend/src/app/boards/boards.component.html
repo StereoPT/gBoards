@@ -3,7 +3,13 @@
   <li class="board-list-item" *ngFor="let board of boards">
     <div class="board-tile">
       <div class="board-tile-details">
-        <div class="board-tile-details-name">{{board.name}}</div>
+        <div class="board-tile-details-name">
+          {{board.name}}
+          <button class="add-btn-white float-right" (click)="editBoard(board);"><span class="fas fa-edit"></span></button>
+        </div>
+        <div class="" *ngIf="editingBoard == board">
+          <label>Name: <input [(ngModel)]="board.name" (keyup.enter)="updateBoard(board); editingBoard = null;" placeholder="Name"></label>
+        </div>
       </div>
       <button class="add-btn-white" (click)="deleteBoard(board);"><span class="fas fa-trash"></span></button>
     </div>

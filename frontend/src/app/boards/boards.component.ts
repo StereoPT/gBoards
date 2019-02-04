@@ -10,6 +10,7 @@ import { BoardService } from '../board.service';
 })
 export class BoardsComponent implements OnInit {
   boards: Board[];
+  editingBoard: Board;
 
   constructor(private boardService: BoardService) { }
 
@@ -34,5 +35,18 @@ export class BoardsComponent implements OnInit {
     this.boardService.deleteBoard(board).subscribe(board => {
       this.boards.splice(board.id, 1);
     });
+  }
+
+  updateBoard(board: Board) {
+    if(!board) { return; }
+    this.boardService.updateBoard(board).subscribe(board => {
+
+    });
+  }
+
+  editBoard(board: Board) {
+    if(!this.editingBoard)              { this.editingBoard = board; }
+    else if(this.editingBoard == board) { this.editingBoard = null;  }
+    else                                { this.editingBoard = board; }
   }
 }
