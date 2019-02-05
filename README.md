@@ -1,6 +1,6 @@
 # GBoards
 
-![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_007.jpg)
+![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_008.jpg)
 
 ## ToDo List
 
@@ -9,8 +9,8 @@
 - [x] Update Boards
 - [x] ReDo Board Data
 - [x] ReDo FrontEnd Pt1
-- [ ] ReDo Messages to use Snackbar
-- [ ] ReDo Add Board to use FabButton
+- [x] ReDo Messages to use Snackbar
+- [ ] ReDo Add Board in Board Grid
 - [ ] ReDo Edit / Update Boards
 - [ ] New ReadMe.md
 

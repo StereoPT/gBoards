@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { BoardsComponent } from './boards/boards.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -31,7 +32,8 @@ import { MessagesComponent } from './messages/messages.component';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSnackBarModule
   ],
   providers: [ ],
   bootstrap: [ AppComponent ]
