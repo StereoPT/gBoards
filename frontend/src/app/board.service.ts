@@ -24,31 +24,31 @@ export class BoardService {
     );
   }
 
-  getBoard(id: number): Observable<Board> {
-    return this.http.get<Board>(`http://localhost:2909/boards/${id}`).pipe(
-      tap(_ => this.log(`Fetched Board: ID=${id}`)),
-      catchError(this.handleError<Board>(`getBoard ID=${id}`))
+  getBoard(name: string): Observable<Board> {
+    return this.http.get<Board>(`http://localhost:2909/boards/${name}`).pipe(
+      tap(_ => this.log(`Fetched Board: name=${name}`)),
+      catchError(this.handleError<Board>(`getBoard Name=${name}`))
     );
   }
 
   addBoard(board: Board): Observable<Board> {
     return this.http.post<Board>('http://localhost:2909/boards/add', board, httpOptions).pipe(
-      tap((board: Board) => this.log(`Added Board w/ id=${board.id}`)),
+      tap((board: Board) => this.log(`Added Board w/ name=${board.name}`)),
       catchError(this.handleError<Board>('addBoard'))
     );
   }
 
   deleteBoard(board: Board): Observable<Board> {
     return this.http.post<Board>('http://localhost:2909/boards/delete/', board, httpOptions).pipe(
-      tap(_ => this.log(`Deleted Board: ID=${board.id}`)),
-      catchError(this.handleError<Board>(`deleteBoard ID=${board.id}`))
+      tap(_ => this.log(`Deleted Board: name=${board.name}`)),
+      catchError(this.handleError<Board>(`deleteBoard name=${board.name}`))
     );
   }
 
   updateBoard(board: Board): Observable<Board> {
     return this.http.post<Board>('http://localhost:2909/boards/update/', board, httpOptions).pipe(
-      tap(_ => this.log(`Updated Board: ID=${board.id}`)),
-      catchError(this.handleError<Board>(`updateBoard ID=${board.id}`))
+      tap(_ => this.log(`Updated Board: name=${board.name}`)),
+      catchError(this.handleError<Board>(`updateBoard name=${board.name}`))
     );
   }
 

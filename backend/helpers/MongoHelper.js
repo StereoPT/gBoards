@@ -1,4 +1,5 @@
-const MongoClient = require('mongodb').MongoClient,
+const mongodb = require('mongodb'),
+      MongoClient = mongodb.MongoClient,
       assert = require('assert');
 const config = require('../config.json');
 
@@ -29,11 +30,11 @@ function MongoHelper() {
     });
   };
 
-  this.ListBoard = function(boardID, callback) {
+  this.ListBoard = function(boardName, callback) {
     Connect((db) => {
       let boardsTable = db.collection('Boards');
 
-      boardsTable.find({ "id": boardID }).toArray(function(err, result) {
+      boardsTable.find({ "name": boardName }).toArray(function(err, result) {
         assert.equal(err, null);
         callback(result[0]);
 
@@ -59,7 +60,7 @@ function MongoHelper() {
     Connect((db) => {
       let boardsTable = db.collection('Boards');
 
-      boardsTable.deleteOne({ id: boardToDelete.id }, function(err, result) {
+      boardsTable.deleteOne({ _id: new mongodb.ObjectID(boardToDelete._id) }, function(err, result) {
         assert.equal(err, null);
         callback(result);
 
@@ -72,7 +73,9 @@ function MongoHelper() {
     Connect((db) => {
       let boardsTable = db.collection('Boards');
 
-      boardsTable.updateOne({ id: boardToUpdate.id }, { $set: { name: boardToUpdate.name }}, function(err, result) {
+      boardsTable.updateOne(
+        { _id: new mongodb.ObjectID(boardToUpdate._id) },
+        { $set: { name: boardToUpdate.name }}, function(err, result) {
         assert.equal(err, null);
         callback(result);
 

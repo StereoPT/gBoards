@@ -25,23 +25,24 @@ export class BoardsComponent implements OnInit {
   addBoard(name: string) {
     name = name.trim();
     if(!name) { return; }
-    this.boardService.addBoard({ id: this.boards.length + 1, name: name } as Board).subscribe(board => {
+    this.boardService.addBoard({ name: name } as Board).subscribe(board => {
       this.boards.push(board);
     });
   }
 
   deleteBoard(board: Board) {
     if(!board) { return; }
-    this.boardService.deleteBoard(board).subscribe(board => {
-      this.boards.splice(board.id, 1);
+    this.boardService.deleteBoard(board).subscribe(deletedBoard => {
+      let boardIndex = this.boards.indexOf(board);
+      if(boardIndex != -1) {
+        this.boards.splice(boardIndex, 1);
+      }
     });
   }
 
   updateBoard(board: Board) {
     if(!board) { return; }
-    this.boardService.updateBoard(board).subscribe(board => {
-
-    });
+    this.boardService.updateBoard(board).subscribe(board => { });
   }
 
   editBoard(board: Board) {

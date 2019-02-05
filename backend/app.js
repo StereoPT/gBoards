@@ -27,9 +27,9 @@ app.get('/boards', (req, res) => {
   });
 });
 
-app.get('/boards/:id', (req, res) => {
-  let boardID = Number(req.params.id);
-  mongoHelper.ListBoard(boardID, (result) => {
+app.get('/boards/:name', (req, res) => {
+  let boardName = req.params.name
+  mongoHelper.ListBoard(boardName, (result) => {
     res.send(result);
   });
 });
