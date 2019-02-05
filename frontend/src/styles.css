@@ -5,3 +5,11 @@ html {
 	background-color: #D5D5D5;
 	font-family: 'Roboto', sans-serif;
 }
+
+body {
+	margin: 0 !important;
+}
+
+#app {
+	margin: 8px;
+}

@@ -1,24 +1,32 @@
 <h2><i class="fas fa-user m-r-10"></i> Boards</h2>
-<ul class="board-list">
-  <li class="board-list-item" *ngFor="let board of boards">
-    <div class="board-tile">
-      <div class="board-tile-details">
-        <div class="board-tile-details-name">
-          {{board.name}}
-          <button class="add-btn-white float-right" (click)="editBoard(board);"><span class="fas fa-edit"></span></button>
-        </div>
-        <div class="" *ngIf="editingBoard == board">
-          <label>Name: <input [(ngModel)]="board.name" (keyup.enter)="updateBoard(board); editingBoard = null;" placeholder="Name"></label>
-        </div>
-      </div>
-      <button class="add-btn-white" (click)="deleteBoard(board);"><span class="fas fa-trash"></span></button>
-    </div>
-  </li>
-  <li class="board-list-item">
-    <div class="board-tile mod-add">
-      <div class="board-tile-details-name">Board Name:</div>
+<mat-grid-list cols="5" rowHeight="3:2">
+  <mat-grid-tile *ngFor="let board of boards">
+    <mat-card class="board-card">
+      <mat-card-header>
+          <mat-card-title>{{board.name}}</mat-card-title>
+          <mat-card-subtitle>{{board._id}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="" *ngIf="editingBoard == board">
+            <label>Name: <input [(ngModel)]="board.name" (keyup.enter)="updateBoard(board); editingBoard = null;" placeholder="Name"></label>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="editBoard(board);"><span class="fas fa-edit"></span></button>
+          <button mat-button (click)="deleteBoard(board);"><span class="fas fa-trash"></span></button>
+        </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card class="board-card">
+  <mat-card-header>
+      <mat-card-title>Board Name:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
       <input class="add-board-input" #boardName />
-      <button class="add-btn" (click)="addBoard(boardName.value); boardName.value=''">Add</button>
-    </div>
-  </li>
-</ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="addBoard(boardName.value); boardName.value=''">Add</button>
+    </mat-card-actions>
+</mat-card>

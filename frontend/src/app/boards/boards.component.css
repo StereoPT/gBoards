@@ -8,6 +8,10 @@ ul {
   padding: 0;
 }
 
+.board-card {
+  max-width: 250px;
+}
+
 .m-r-10 {
   margin-right: 10px;
 }

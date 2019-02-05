@@ -1,5 +1,8 @@
-<div class="centerAlign">
-  <img src="../assets/gBoard.png" alt="gBoard">
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+</mat-toolbar>
+
+<div id="app">
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
 </div>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
