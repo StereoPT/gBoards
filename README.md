@@ -1,18 +1,16 @@
 # GBoards
 
-![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_008.jpg)
+![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_009.jpg)
 
 ## ToDo List
 
-- [x] Add New Boards
-- [x] Delete Boards
-- [x] Update Boards
 - [x] ReDo Board Data
 - [x] ReDo FrontEnd Pt1
 - [x] ReDo Messages to use Snackbar
-- [ ] ReDo Add Board in Board Grid
+- [x] ReDo Add Board in Board Grid
 - [ ] ReDo Edit / Update Boards
 - [ ] New ReadMe.md
+- [ ] BackEnd Code Cleanup
 
 ## Development Server
 
