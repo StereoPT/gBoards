@@ -16,13 +16,16 @@
 ### FrontEnd
 
 Angular Application for FrontEnd. (inside 'frontend' folder)
+
 Run with `ng serve --open`.
+
 Will open the Applcation in your Browser. If it doesn't navigate to `http://localhost:4200/`.
 
 
 ### BackEnd
 
 Node.js Application for BackEnd. (inside 'backend' folder)
+
 Run with `nodemon app.js`.
 
 #### Backend Routes
