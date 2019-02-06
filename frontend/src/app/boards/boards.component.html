@@ -1,15 +1,15 @@
 <h2><i class="fas fa-user m-r-10"></i> Boards</h2>
-<mat-grid-list cols="5" rowHeight="150px">
+<mat-grid-list cols="5" rowHeight="210px">
   <mat-grid-tile *ngFor="let board of boards">
-    <mat-card class="board-card" style="height: 75%;">
+    <mat-card class="board-card">
       <mat-card-header>
           <mat-card-title>{{board.name}}</mat-card-title>
           <mat-card-subtitle>{{board._id}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <div *ngIf="editingBoard == board">
-            <label>Name: <input [(ngModel)]="board.name" (keyup.enter)="updateBoard(board); editingBoard = null;" placeholder="Name"></label>
-          </div>
+          <mat-form-field *ngIf="editingBoard == board">
+            <input matInput [(ngModel)]="board.name" (keyup.enter)="updateBoard(board); editingBoard = null;" placeholder="New Name" value="">
+          </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
           <button mat-button (click)="editBoard(board);"><span class="fas fa-edit"></span></button>
@@ -18,7 +18,7 @@
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
-    <mat-card class="board-card" style="height: 75%;">
+    <mat-card class="board-card">
       <mat-card-content>
         <mat-form-field>
           <input matInput placeholder="Board Name" value="" #boardName>
