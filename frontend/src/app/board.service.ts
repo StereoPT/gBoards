@@ -38,17 +38,17 @@ export class BoardService {
     );
   }
 
-  deleteBoard(board: Board): Observable<Board> {
-    return this.http.post<Board>('http://localhost:2909/boards/delete/', board, httpOptions).pipe(
-      tap(_ => this.log(`Deleted Board: name=${board.name}`)),
-      catchError(this.handleError<Board>(`deleteBoard name=${board.name}`))
+  updateBoard(board: Board): Observable<Board> {
+    return this.http.put<Board>('http://localhost:2909/boards/update/', board, httpOptions).pipe(
+      tap(_ => this.log(`Updated Board: name=${board.name}`)),
+      catchError(this.handleError<Board>(`updateBoard name=${board.name}`))
     );
   }
 
-  updateBoard(board: Board): Observable<Board> {
-    return this.http.post<Board>('http://localhost:2909/boards/update/', board, httpOptions).pipe(
-      tap(_ => this.log(`Updated Board: name=${board.name}`)),
-      catchError(this.handleError<Board>(`updateBoard name=${board.name}`))
+  deleteBoard(board: Board): Observable<Board> {
+    return this.http.delete<Board>(`http://localhost:2909/boards/delete/${board._id}`, httpOptions).pipe(
+      tap(_ => this.log(`Deleted Board: name=${board.name}`)),
+      catchError(this.handleError<Board>(`deleteBoard name=${board.name}`))
     );
   }
 

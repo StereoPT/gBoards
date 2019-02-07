@@ -4,12 +4,13 @@
 
 ## ToDo List
 
-- [x] ReDo FrontEnd Pt1
-- [x] ReDo Messages to use Snackbar
 - [x] ReDo Add Board in Board Grid
 - [x] ReDo Edit / Update Boards
 - [x] New ReadMe.md
-- [ ] BackEnd Code Cleanup
+- [x] BackEnd Code Cleanup
+- [ ] Create Board Component
+- [ ] Route from Boards to Board
+- [ ] Create List Component
 
 ## Development Server
 
@@ -34,5 +35,5 @@ Run with `nodemon app.js`.
 - GET `http://localhost:2909/boards/:boardName` Will Display the Requested Board.
 
 - POST `http://localhost:2909/boards/add` Will Add a Board.
-- POST `http://localhost:2909/boards/delete` Will Delete a Board.
-- POST `http://localhost:2909/boards/update` Will Update the Board.
+- PUT `http://localhost:2909/boards/update` Will Update the Board.
+- DELETE `http://localhost:2909/boards/delete` Will Delete a Board.
