@@ -24,10 +24,10 @@ export class BoardService {
     );
   }
 
-  getBoard(name: string): Observable<Board> {
-    return this.http.get<Board>(`http://localhost:2909/boards/${name}`).pipe(
-      tap(_ => this.log(`Fetched Board: name=${name}`)),
-      catchError(this.handleError<Board>(`getBoard Name=${name}`))
+  getBoard(id: string): Observable<Board> {
+    return this.http.get<Board>(`http://localhost:2909/boards/${id}`).pipe(
+      tap(_ => this.log(`Fetched Board: id=${id}`)),
+      catchError(this.handleError<Board>(`getBoard id=${id}`))
     );
   }
 

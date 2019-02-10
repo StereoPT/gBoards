@@ -16,12 +16,14 @@ import { MatInputModule } from '@angular/material/input';
 
 import { BoardsComponent } from './boards/boards.component';
 import { MessagesComponent } from './messages/messages.component';
+import { BoardComponent } from './board/board.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardsComponent,
-    MessagesComponent
+    MessagesComponent,
+    BoardComponent
   ],
   imports: [
     HttpClientModule,

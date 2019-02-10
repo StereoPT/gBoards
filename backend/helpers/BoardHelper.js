@@ -17,11 +17,11 @@ function BoardHelper(router, mongoHelper) {
     });
   };
 
-  function ListOneBoard(boardName, callback) {
+  function ListOneBoard(boardID, callback) {
     mongoHelper.Connect((client, db) => {
       let boardsTable = db.collection(TABLE);
 
-      boardsTable.find({ "name": boardName }).toArray(function(err, result) {
+      boardsTable.find({ _id: new mongodb.ObjectID(boardID) }).toArray(function(err, result) {
         assert.equal(err, null);
         callback(result[0]);
 
@@ -77,9 +77,9 @@ function BoardHelper(router, mongoHelper) {
     ListAllBoards((result) => { res.send(result); });
   });
 
-  router.get('/:name', (req, res) => {
-    let boardName = req.params.name
-    ListOneBoard(boardName, (result) => { res.send(result); });
+  router.get('/:id', (req, res) => {
+    let boardID = req.params.id.trim();
+    ListOneBoard(boardID, (result) => { res.send(result); });
   });
 
   router.post('/add', (req, res) => {

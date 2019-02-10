@@ -1,11 +1,20 @@
 h2 {
   color: #454545;
+  margin-bottom: 0px;
 }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+mat-card {
+  cursor: pointer;
+}
+
+div.mat-card-header-text {
+    margin: 0 0 !important;
 }
 
 .board-card {
