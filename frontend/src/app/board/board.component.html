@@ -1,5 +1,15 @@
 <div *ngIf="board">
   <h2><i class="fas fa-clipboard-list m-r-10"></i> {{board.name}}</h2>
-  
+
+  <div *ngIf="lists">
+    <ul>
+      <li *ngFor="let list of lists">
+        {{list.name}}
+      </li>
+    </ul>
+  </div>
+
+  <button mat-button (click)="displayBoard();">Display Board</button>
+  <button mat-button (click)="displayList();">Display List</button>
   <button mat-button (click)="goBack();"><span class="fas fa-arrow-alt-circle-left"></span> Back</button>
 </div>

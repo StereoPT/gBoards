@@ -1,6 +1,7 @@
 h2 {
   color: #454545;
   margin-bottom: 0px;
+  padding-left: var(--mdc-layout-grid-margin-desktop, 24px);
 }
 
 ul {
@@ -11,14 +12,6 @@ ul {
 
 mat-card {
   cursor: pointer;
-}
-
-div.mat-card-header-text {
-    margin: 0 0 !important;
-}
-
-.board-card {
-  max-width: 250px;
 }
 
 .m-r-10 {
