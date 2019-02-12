@@ -15,6 +15,7 @@ import { ListService } from '../list.service';
 export class BoardComponent implements OnInit {
   board: Board;
   lists: List[];
+  addingCard: boolean = false;
 
   constructor(private route: ActivatedRoute, private boardService: BoardService, private listService: ListService, private location: Location) { }
 
@@ -30,18 +31,13 @@ export class BoardComponent implements OnInit {
 
   getLists(): void {
     const boardID = this.route.snapshot.paramMap.get('id');
-    this.listService.getLists(boardID).subscribe(lists => this.lists = lists);
+    this.listService.getLists(boardID).subscribe(lists => {
+      this.lists = lists;
+      console.log(this.lists);
+    });
   }
 
   goBack(): void {
     this.location.back();
-  }
-
-  displayBoard(): void {
-    console.log(this.board);
-  }
-
-  displayList(): void {
-    console.log(this.lists);
   }
 }

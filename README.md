@@ -1,16 +1,18 @@
 # GBoards
 
-![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_011.jpg)
+![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_013.jpg)
 
 ## ToDo List
 
-- [x] ReDo Add Board in Board Grid
-- [x] ReDo Edit / Update Boards
-- [x] New ReadMe.md
-- [x] BackEnd Code Cleanup
 - [x] Create Board Component
 - [x] Route from Boards to Board
+- [x] Display Lists
+- [x] Display Cards
 - [ ] Create List Component
+- [ ] Create Card Component
+- [ ] Use List & Card Components
+- [ ] BackEnd List Integration
+- [ ] BackEnd Card Integration
 
 ## Development Server
 

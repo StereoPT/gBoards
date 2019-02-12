@@ -1,15 +1,40 @@
-<div *ngIf="board">
+<div class="lists-wrapper" *ngIf="board">
   <h2><i class="fas fa-clipboard-list m-r-10"></i> {{board.name}}</h2>
-
-  <div *ngIf="lists">
-    <ul>
-      <li *ngFor="let list of lists">
-        {{list.name}}
-      </li>
-    </ul>
+  <div class="mdc-layout-grid" *ngIf="lists">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell--span-3" *ngFor="let list of lists">
+        <mat-card class="list-card">
+          <mat-card-header>
+            <mat-card-title>{{list.name}}</mat-card-title>
+            <div class="full-width">
+              <button mat-flat-button color="primary" class="mini-button"><span class="fas fa-trash"></span></button>
+            </div>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="full-width" *ngIf="list.cards">
+              <mat-card class="card" *ngFor="let card of list.cards">{{card}}</mat-card>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <div *ngIf="addingCard == false">
+              <button mat-button class="full-width" (click)="addingCard = true;">Add a Card</button>
+            </div>
+            <div *ngIf="addingCard == true">
+              <mat-card>
+                <mat-card-content>
+                  <mat-form-field class="full-width">
+                    <input matInput placeholder="Card Title" value="">
+                  </mat-form-field>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-flat-button color="primary" class="m-r-10">Create</button>
+                  <button mat-flat-button color="primary" (click)="addingCard = false;"><span class="fas fa-times"></span></button>
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
   </div>
-
-  <button mat-button (click)="displayBoard();">Display Board</button>
-  <button mat-button (click)="displayList();">Display List</button>
-  <button mat-button (click)="goBack();"><span class="fas fa-arrow-alt-circle-left"></span> Back</button>
 </div>

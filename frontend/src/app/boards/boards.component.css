@@ -4,12 +4,6 @@ h2 {
   padding-left: var(--mdc-layout-grid-margin-desktop, 24px);
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
 mat-card {
   cursor: pointer;
 }

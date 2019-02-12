@@ -2,7 +2,7 @@
   <h2><i class="fas fa-user m-r-10"></i> Boards</h2>
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell" *ngFor="let board of boards">
+      <div class="mdc-layout-grid__cell--span-3" *ngFor="let board of boards">
         <mat-card class="board-card" routerLink="/b/{{board._id}}">
           <mat-card-header>
             <mat-card-title>{{board.name}}</mat-card-title>
@@ -19,7 +19,7 @@
           </mat-card-actions>
         </mat-card>
       </div>
-      <div class="mdc-layout-grid__cell">
+      <div class="mdc-layout-grid__cell--span-3">
         <mat-card>
           <mat-card-content>
             <mat-form-field>
