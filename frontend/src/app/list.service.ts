@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { List } from './list';
+import { Card } from './card';
 import { MessageService } from './message.service';
 
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
@@ -42,6 +43,14 @@ export class ListService {
     return this.http.delete<List>(`http://localhost:2909/lists/delete/${list._id}`, httpOptions).pipe(
       tap(_ => this.log(`Deleted List: name=${list.name}`)),
       catchError(this.handleError<List>(`deleteList name=${list.name}`))
+    );
+  }
+
+
+  addCard(card: Card): Observable<Card> {
+    return this.http.post<Card>('http://localhost:2909/lists/card/add', card, httpOptions).pipe(
+      tap((card: Card) => this.log(`Added Card w/ name=${card.name}`)),
+      catchError(this.handleError<Card>('addCard'))
     );
   }
 

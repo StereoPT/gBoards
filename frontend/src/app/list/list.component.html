@@ -11,7 +11,9 @@
       <input matInput [(ngModel)]="list.name" (keyup.enter)="updateList(list); editingList = false;" placeholder="New Name" value="">
     </mat-form-field>
     <div class="full-width" *ngIf="list.cards">
-      <mat-card class="card" *ngFor="let card of list.cards">{{card}}</mat-card>
+      <div *ngFor="let card of list.cards">
+        <app-card [card]="card"></app-card>
+      </div>
     </div>
   </mat-card-content>
   <mat-card-actions>
@@ -22,11 +24,11 @@
       <mat-card>
         <mat-card-content>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Card Title" value="">
+            <input matInput placeholder="Card Title" value="" #cardName>
           </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-flat-button color="primary" class="m-r-10">Create</button>
+          <button mat-flat-button color="primary" (click)="addCard(cardName.value); addingCard = false;" class="m-r-10">Create</button>
           <button mat-flat-button color="primary" (click)="addingCard = false;"><span class="fas fa-times"></span></button>
         </mat-card-actions>
       </mat-card>

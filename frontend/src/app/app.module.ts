@@ -18,6 +18,7 @@ import { BoardsComponent } from './boards/boards.component';
 import { MessagesComponent } from './messages/messages.component';
 import { BoardComponent } from './board/board.component';
 import { ListComponent } from './list/list.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ListComponent } from './list/list.component';
     BoardsComponent,
     MessagesComponent,
     BoardComponent,
-    ListComponent
+    ListComponent,
+    CardComponent
   ],
   imports: [
     HttpClientModule,

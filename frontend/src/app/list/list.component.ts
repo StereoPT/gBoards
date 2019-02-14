@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { List } from '../list';
+import { Card } from '../card';
 import { ListService } from '../list.service';
 
 @Component({
@@ -20,6 +21,14 @@ export class ListComponent implements OnInit {
   constructor(private listService: ListService) { }
 
   ngOnInit() { }
+
+  addCard(name: string) {
+    name = name.trim();
+    if(!name) { return; }
+    this.listService.addCard({ listID: this.list._id, name: name } as Card).subscribe(card => {
+      this.list.cards.push(card.name);
+    });
+  }
 
   deleteList(list: List) {
     if(!list) { return; }
