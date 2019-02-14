@@ -30,19 +30,6 @@ function BoardHelper(router, mongoHelper) {
     });
   };
 
-  function ListBoardLists(boardID, callback) {
-    mongoHelper.Connect((client, db) => {
-      let listsTable = db.collection('Lists');
-
-      listsTable.find({ boardID: new mongodb.ObjectID(boardID) }).toArray(function(err, result) {
-        assert.equal(err, null);
-        callback(result);
-
-        client.close();
-      });
-    });
-  };
-
   function AddBoard(boardToAdd, callback) {
     mongoHelper.Connect((client, db) => {
       let boardsTable = db.collection(TABLE);
@@ -93,11 +80,6 @@ function BoardHelper(router, mongoHelper) {
   router.get('/:id', (req, res) => {
     let boardID = req.params.id.trim();
     ListOneBoard(boardID, (result) => { res.send(result); });
-  });
-
-  router.get('/:id/lists', (req, res) => {
-    let boardID = req.params.id.trim();
-    ListBoardLists(boardID, (result) => { res.send(result); });
   });
 
   router.post('/add', (req, res) => {

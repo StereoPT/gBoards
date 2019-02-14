@@ -18,9 +18,30 @@ export class ListService {
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
   getLists(id: string): Observable<List[]> {
-    return this.http.get<List[]>(`http://localhost:2909/boards/${id}/lists`).pipe(
+    return this.http.get<List[]>(`http://localhost:2909/lists/${id}`).pipe(
       tap(_ => this.log('Fetched Board Lists')),
       catchError(this.handleError('getLists', []))
+    );
+  }
+
+  addList(list: List): Observable<List> {
+    return this.http.post<List>('http://localhost:2909/lists/add', list, httpOptions).pipe(
+      tap((list: List) => this.log(`Added List w/ name=${list.name}`)),
+      catchError(this.handleError<List>('addList'))
+    );
+  }
+
+  updateList(list: List): Observable<List> {
+    return this.http.put<List>('http://localhost:2909/lists/update/', list, httpOptions).pipe(
+      tap(_ => this.log(`Updated List: name=${list.name}`)),
+      catchError(this.handleError<List>(`updateList name=${list.name}`))
+    );
+  }
+
+  deleteList(list: List): Observable<List> {
+    return this.http.delete<List>(`http://localhost:2909/lists/delete/${list._id}`, httpOptions).pipe(
+      tap(_ => this.log(`Deleted List: name=${list.name}`)),
+      catchError(this.handleError<List>(`deleteList name=${list.name}`))
     );
   }
 

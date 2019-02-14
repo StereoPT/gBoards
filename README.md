@@ -1,6 +1,6 @@
 # GBoards
 
-![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_013.jpg)
+![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_014.jpg)
 
 ## ToDo List
 
@@ -8,10 +8,10 @@
 - [x] Route from Boards to Board
 - [x] Display Lists
 - [x] Display Cards
-- [ ] Create List Component
+- [x] Create List Component
 - [ ] Create Card Component
 - [ ] Use List & Card Components
-- [ ] BackEnd List Integration
+- [x] BackEnd List Integration
 - [ ] BackEnd Card Integration
 
 ## Development Server

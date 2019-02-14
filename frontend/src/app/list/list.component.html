@@ -1,0 +1,35 @@
+<mat-card class="list-card">
+  <mat-card-header>
+    <mat-card-title>{{list.name}}</mat-card-title>
+    <div class="full-width">
+      <button mat-flat-button color="primary" class="mini-button" (click)="deleteList(list);"><span class="fas fa-trash"></span></button>
+      <button mat-flat-button color="primary" class="mini-button m-r-10" (click)="editList();"><span class="fas fa-edit"></span></button>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field class="full-width" *ngIf="editingList">
+      <input matInput [(ngModel)]="list.name" (keyup.enter)="updateList(list); editingList = false;" placeholder="New Name" value="">
+    </mat-form-field>
+    <div class="full-width" *ngIf="list.cards">
+      <mat-card class="card" *ngFor="let card of list.cards">{{card}}</mat-card>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div *ngIf="addingCard == false">
+      <button mat-button class="full-width" (click)="addingCard = true;">Add a Card</button>
+    </div>
+    <div *ngIf="addingCard == true">
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Card Title" value="">
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-flat-button color="primary" class="m-r-10">Create</button>
+          <button mat-flat-button color="primary" (click)="addingCard = false;"><span class="fas fa-times"></span></button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-card-actions>
+</mat-card>

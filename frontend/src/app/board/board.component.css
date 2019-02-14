@@ -7,22 +7,3 @@ h2 {
 .full-width {
   width: 100%;
 }
-
-.m-r-10 {
-  margin-right: 10px;
-}
-
-.mini-button {
-  min-width: 42px;
-  height: 25px;
-  line-height: 0 !important;
-  float: right;
-}
-
-.card {
-  font-size: 16px;
-  background: #F6F6F6;
-  padding: 15px;
-  word-wrap: break-word;
-	margin: 0px 0px 15px 0px;
-}

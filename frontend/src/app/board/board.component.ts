@@ -33,8 +33,30 @@ export class BoardComponent implements OnInit {
     const boardID = this.route.snapshot.paramMap.get('id');
     this.listService.getLists(boardID).subscribe(lists => {
       this.lists = lists;
-      console.log(this.lists);
     });
+  }
+
+  addList(name: string) {
+    const boardID = this.route.snapshot.paramMap.get('id');
+    name = name.trim();
+    if(!name) { return; }
+    console.log(boardID + " | " + name);
+    this.listService.addList({ boardID: boardID, name: name, cards: [] } as List).subscribe(list => {
+      this.lists.push(list);
+    });
+  }
+
+  deleteEventHandler(list: List) {
+    this.listService.deleteList(list).subscribe(deletedList => {
+      let listIndex = this.lists.indexOf(list);
+      if(listIndex != -1) {
+        this.lists.splice(listIndex, 1);
+      }
+    });
+  }
+
+  updateEventHandler(list: List) {
+    this.listService.updateList(list).subscribe(list => { });
   }
 
   goBack(): void {
