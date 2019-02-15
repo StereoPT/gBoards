@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { List } from '../list';
+import { Card } from '../card';
 import { ListService } from '../list.service';
 
 @Component({
@@ -23,14 +24,6 @@ export class ListComponent implements OnInit {
 
   ngOnInit() { }
 
-  addCard(name: string) {
-    name = name.trim();
-    if(!name) { return; }
-    this.listService.addCard(this.list._id, name).subscribe(card => {
-      this.list.cards.push(card);
-    });
-  }
-
   deleteList(list: List) {
     if(!list) { return; }
     this.deleteListEvent.emit(list);
@@ -41,19 +34,28 @@ export class ListComponent implements OnInit {
     this.updateListEvent.emit(list);
   }
 
-  deleteCard(card: string) {
-    if(!card) { return; }
-    this.listService.deleteCard(this.list._id, card).subscribe(card => {
-      let cardIndex = this.list.cards.indexOf(card.cardName);
+  addCard(cardText: string) {
+    cardText = cardText.trim();
+    if(!cardText) { return; }
+    this.listService.addCard(this.list._id, { text: cardText } as Card).subscribe(card => {
+      this.list.cards.push(card.text);
+    });
+  }
+
+  deleteCard(cardText: string) {
+    if(!cardText) { return; }
+    this.listService.deleteCard(this.list._id, { text: cardText } as Card).subscribe(card => {
+      console.log(card);
+      let cardIndex = this.list.cards.indexOf(card.text);
       if(cardIndex != -1) {
         this.list.cards.splice(cardIndex, 1);
       }
     });
   }
 
-  updateCard(card: string) {
-    if(!card) { return; }
-    this.listService.updateCard(this.list._id, this.cardLastName, card).subscribe(card => { });
+  updateCard(cardText: string) {
+    if(!cardText) { return; }
+    this.listService.updateCard(this.list._id, this.cardLastName, { text: cardText } as Card).subscribe(card => { });
   }
 
   editList() {

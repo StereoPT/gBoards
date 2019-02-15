@@ -64,9 +64,9 @@ function ListHelper(router, mongoHelper) {
 
       listsTable.updateOne(
         { _id: new mongodb.ObjectID(cardToAdd.listID) },
-        { $push: { cards: cardToAdd.name }}, function(err, result) {
+        { $push: { cards: cardToAdd.card.text }}, function(err, result) {
         assert.equal(err, null);
-        callback(cardToAdd);
+        callback(cardToAdd.card);
 
         client.close();
       });
@@ -79,7 +79,7 @@ function ListHelper(router, mongoHelper) {
 
       listsTable.updateOne(
         { _id: new mongodb.ObjectID(cardToUpdate.listID), cards: cardToUpdate.cardLastName },
-        { $set: { "cards.$": cardToUpdate.cardName }}, function(err, result) {
+        { $set: { "cards.$": cardToUpdate.card.text }}, function(err, result) {
           assert.equal(err, null);
           callback(result);
 
@@ -94,9 +94,9 @@ function ListHelper(router, mongoHelper) {
 
       listsTable.updateOne(
         { _id: new mongodb.ObjectID(cardToDelete.listID) },
-        { $pull: { cards: cardToDelete.name }}, function(err, result) {
+        { $pull: { cards: cardToDelete.card.text }}, function(err, result) {
         assert.equal(err, null);
-        callback(cardToDelete);
+        callback(cardToDelete.card);
 
         client.close();
       });

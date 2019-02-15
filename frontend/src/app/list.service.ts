@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { List } from './list';
+import { Card } from './card';
 import { MessageService } from './message.service';
 
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
@@ -47,24 +48,24 @@ export class ListService {
 
 //***** ***** ***** CARDS
 
-  addCard(listID: string, cardName: string): Observable<string> {
-    return this.http.post<string>('http://localhost:2909/lists/card/add', {listID, cardName}, httpOptions).pipe(
-      tap((card: string) => this.log(`Added Card w/ name=${cardName}`)),
-      catchError(this.handleError<string>('addCard'))
+  addCard(listID: string, card: Card): Observable<Card> {
+    return this.http.post<Card>('http://localhost:2909/lists/card/add', { listID, card }, httpOptions).pipe(
+      tap((card: Card) => this.log(`Added Card w/ name=${card.text}`)),
+      catchError(this.handleError<Card>('addCard'))
     );
   }
 
-  updateCard(listID: string, cardLastName: string, cardName: string): Observable<string> {
-    return this.http.put<string>('http://localhost:2909/lists/card/update/', {listID, cardLastName, cardName}, httpOptions).pipe(
-      tap(_ => this.log(`Updated List: name=${cardName}`)),
-      catchError(this.handleError<string>(`updateList name=${cardName}`))
+  updateCard(listID: string, cardLastName: string, card: Card): Observable<Card> {
+    return this.http.put<Card>('http://localhost:2909/lists/card/update/', { listID, cardLastName, card }, httpOptions).pipe(
+      tap(_ => this.log(`Updated List: name=${card.text}`)),
+      catchError(this.handleError<Card>(`updateList name=${card.text}`))
     );
   }
 
-  deleteCard(listID: string, cardName: string): Observable<string> {
-    return this.http.post<string>(`http://localhost:2909/lists/card/delete/`, { listID, cardName }, httpOptions).pipe(
-      tap(_ => this.log(`Deleted Card: name=${cardName}`)),
-      catchError(this.handleError<string>(`deleteCard name=${cardName}`))
+  deleteCard(listID: string, card: Card): Observable<Card> {
+    return this.http.post<Card>(`http://localhost:2909/lists/card/delete/`, { listID, card }, httpOptions).pipe(
+      tap(_ => this.log(`Deleted Card: name=${card.text}`)),
+      catchError(this.handleError<Card>(`deleteCard name=${card.text}`))
     );
   }
 
