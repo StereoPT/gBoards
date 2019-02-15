@@ -46,7 +46,7 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  deleteEventHandler(list: List) {
+  deleteListHandler(list: List) {
     this.listService.deleteList(list).subscribe(deletedList => {
       let listIndex = this.lists.indexOf(list);
       if(listIndex != -1) {
@@ -55,7 +55,7 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  updateEventHandler(list: List) {
+  updateListHandler(list: List) {
     this.listService.updateList(list).subscribe(list => { });
   }
 

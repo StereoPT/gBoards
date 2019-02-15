@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { List } from '../list';
-import { Card } from '../card';
 import { ListService } from '../list.service';
 
 @Component({
@@ -14,9 +13,11 @@ export class ListComponent implements OnInit {
 
   addingCard: boolean = false;
   editingList: boolean = false;
+  editingCard: boolean = false;
+  cardLastName: string;
 
-  @Output() deleteEvent = new EventEmitter<List>();
-  @Output() updateEvent = new EventEmitter<List>();
+  @Output() deleteListEvent = new EventEmitter<List>();
+  @Output() updateListEvent = new EventEmitter<List>();
 
   constructor(private listService: ListService) { }
 
@@ -25,22 +26,41 @@ export class ListComponent implements OnInit {
   addCard(name: string) {
     name = name.trim();
     if(!name) { return; }
-    this.listService.addCard({ listID: this.list._id, name: name } as Card).subscribe(card => {
-      this.list.cards.push(card.name);
+    this.listService.addCard(this.list._id, name).subscribe(card => {
+      this.list.cards.push(card);
     });
   }
 
   deleteList(list: List) {
     if(!list) { return; }
-    this.deleteEvent.emit(list);
+    this.deleteListEvent.emit(list);
   }
 
   updateList(list: List) {
     if(!list) { return; }
-    this.updateEvent.emit(list);
+    this.updateListEvent.emit(list);
+  }
+
+  deleteCard(card: string) {
+    if(!card) { return; }
+    this.listService.deleteCard(this.list._id, card).subscribe(card => {
+      let cardIndex = this.list.cards.indexOf(card.cardName);
+      if(cardIndex != -1) {
+        this.list.cards.splice(cardIndex, 1);
+      }
+    });
+  }
+
+  updateCard(card: string) {
+    if(!card) { return; }
+    this.listService.updateCard(this.list._id, this.cardLastName, card).subscribe(card => { });
   }
 
   editList() {
     this.editingList = !this.editingList;
+  }
+
+  editCard() {
+    this.editingCard = !this.editingCard;
   }
 }

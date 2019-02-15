@@ -71,7 +71,37 @@ function ListHelper(router, mongoHelper) {
         client.close();
       });
     });
-  }
+  };
+
+  function UpdateCard(cardToUpdate, callback) {
+    mongoHelper.Connect((client, db) => {
+      let listsTable = db.collection(TABLE);
+
+      listsTable.updateOne(
+        { _id: new mongodb.ObjectID(cardToUpdate.listID), cards: cardToUpdate.cardLastName },
+        { $set: { "cards.$": cardToUpdate.cardName }}, function(err, result) {
+          assert.equal(err, null);
+          callback(result);
+
+          client.close();
+        });
+    });
+  };
+
+  function DeleteCard(cardToDelete, callback) {
+    mongoHelper.Connect((client, db) => {
+      let listsTable = db.collection(TABLE);
+
+      listsTable.updateOne(
+        { _id: new mongodb.ObjectID(cardToDelete.listID) },
+        { $pull: { cards: cardToDelete.name }}, function(err, result) {
+        assert.equal(err, null);
+        callback(cardToDelete);
+
+        client.close();
+      });
+    });
+  };
 
   //***** ***** ***** ***** *****   LIST ROUTES   ***** ***** ***** ***** *****//
 
@@ -99,6 +129,16 @@ function ListHelper(router, mongoHelper) {
   router.post('/card/add', (req, res) => {
     let cardToAdd = req.body;
     AddCard(cardToAdd, (result) => { res.send(result); });
+  });
+
+  router.put('/card/update', (req, res) => {
+    let cardToUpdate = req.body;
+    UpdateCard(cardToUpdate, (result) => { res.send(result); });
+  });
+
+  router.post('/card/delete', (req, res) => {
+    let cardToDelete = req.body;
+    DeleteCard(cardToDelete, (result) => { res.send(result); });
   });
 }
 

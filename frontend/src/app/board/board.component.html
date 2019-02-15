@@ -3,7 +3,7 @@
   <div class="mdc-layout-grid" *ngIf="lists">
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell--span-3" *ngFor="let list of lists">
-        <app-list [list]="list" (deleteEvent)="deleteEventHandler(list);" (updateEvent)="updateEventHandler(list);"></app-list>
+        <app-list [list]="list" (deleteListEvent)="deleteListHandler(list);" (updateListEvent)="updateListHandler(list);"></app-list>
       </div>
       <div class="mdc-layout-grid__cell--span-3">
         <mat-card class="list-card">

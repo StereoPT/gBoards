@@ -12,7 +12,16 @@
     </mat-form-field>
     <div class="full-width" *ngIf="list.cards">
       <div *ngFor="let card of list.cards">
-        <app-card [card]="card"></app-card>
+        <mat-card class="card">
+          {{card}}
+          <mat-form-field class="full-width" *ngIf="editingCard">
+            <input matInput placeholder="Card Title" [(ngModel)]="card" (keyup.enter)="updateCard(card); editingCard = false;" value="">
+          </mat-form-field>
+          <mat-card-actions>
+            <button mat-flat-button color="primary" class="m-r-10 mini-btn" (click)="deleteCard(card);"><span class="fas fa-trash"></span></button>
+            <button mat-flat-button color="primary" class="mini-btn" (click)="editCard(); cardLastName = card;"><span class="fas fa-edit"></span></button>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
   </mat-card-content>

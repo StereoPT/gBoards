@@ -9,6 +9,20 @@
   float: right;
 }
 
+.card {
+  font-size: 16px;
+  background: #F6F6F6;
+  padding: 15px;
+  word-wrap: break-word;
+	margin: 0px 0px 15px 0px;
+}
+
+.mini-btn {
+  min-width: 40px;
+  height: 25px;
+  line-height: 0 !important;
+}
+
 .m-r-10 {
   margin-right: 10px;
 }
