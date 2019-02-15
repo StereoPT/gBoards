@@ -14,7 +14,7 @@ export class ListComponent implements OnInit {
 
   addingCard: boolean = false;
   editingList: boolean = false;
-  editingCard: boolean = false;
+  editingCard: number;
   cardLastName: string;
 
   @Output() deleteListEvent = new EventEmitter<List>();
@@ -62,7 +62,11 @@ export class ListComponent implements OnInit {
     this.editingList = !this.editingList;
   }
 
-  editCard() {
-    this.editingCard = !this.editingCard;
+  editCard(cardIndex: number) {
+    if(this.editingCard != cardIndex) {
+      this.editingCard = cardIndex;
+    } else {
+      this.editingCard = null;
+    }
   }
 }
