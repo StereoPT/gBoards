@@ -39,6 +39,7 @@
 In order for you to use this Project, you need to have a [MongoDB](https://www.mongodb.com/) Account, and a Database Created.
 
 After that, create a `config.json` inside the **backend** folder with the following data:
+
 `{"mongo_url": "url to your database", "database": "database name"}`
 
 With that done, you are good to run the project.
