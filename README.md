@@ -37,8 +37,10 @@
 ## Development Server
 
 In order for you to use this Project, you need to have a [MongoDB](https://www.mongodb.com/) Account, and a Database Created.
+
 After that, create a `config.json` inside the **backend** folder with the following data:
 `{"mongo_url": "url to your database", "database": "database name"}`
+
 With that done, you are good to run the project.
 
 ### FrontEnd
@@ -57,7 +59,7 @@ Will open the Application in your Browser. If it doesn't navigate to `http://loc
 First run `npm install`
 Run with `nodemon app.js`.
 
-#### [Backend Routes](https://raw.githubusercontent.com/StereoPT/gBoards/master/ROUTES.md)
+#### [Backend Routes](https://github.com/StereoPT/gBoards/blob/master/ROUTES.md)
 
 ## Release History
 
