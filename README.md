@@ -1,6 +1,6 @@
 # GBoards
 
-![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_015.jpg)
+![gBoards](https://raw.githubusercontent.com/StereoPT/gBoards/master/screens/gBoards_v1.gif)
 
 ## Features
 
